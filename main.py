@@ -2,10 +2,8 @@
 import sqlite3
 import pandas as pd
 
-
 # Connect to the database
 conn = sqlite3.connect('data.sqlite')
-
 
 #Define the SQL query variables
 sql1 = """ SELECT employeeNumber,lastName FROM employees; """
@@ -75,6 +73,7 @@ sum_total_price = pd.read_sql(sql7, conn).sum()
 df_day_month_year = pd.read_sql(sql8, conn)
 
 
+
 #Test cases
 # Add code below and run file to see data from employees table
 """ print("---------------------Employee Data---------------------")
@@ -95,3 +94,7 @@ print("----------------End Order Details Data----------------") """
 """ print("------------------Order Details Data------------------")
 print(df_day_month_year)
 print("----------------End Order Details Data----------------") """
+
+
+# disconnect the database
+conn.close()
